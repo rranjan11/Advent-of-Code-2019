@@ -94,7 +94,7 @@ public class IntcodeComputer {
                 halt = true;
                 break;
             }
-            if (list.get(i)%100 == 1L) {
+            if (list.get(i)%100 == 1) {
                 method1(list, i, relativeBase);
                 i += 4;
             } else if (list.get(i)%100 == 2) {
