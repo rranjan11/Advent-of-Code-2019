@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * Day 17
+ * @author Rishabh Ranjan
+ */
 public class SetAndForget {
     public static boolean pathForward(ArrayList<String> view, int x, int y, char direction) {
         if (direction == '^' && y != 0 && view.get(y - 1).charAt(x) == '#') {
