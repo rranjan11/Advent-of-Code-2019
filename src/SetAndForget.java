@@ -205,7 +205,7 @@ public class SetAndForget {
         functionPath = functionPath.substring(0, functionPath.length() - 1) + '\n';
         A += '\n';
         B += '\n';
-        C = "L,8,R,6,L,5,5,L,5,5\n";
+        C += '\n';
 //        System.out.println(functionPath);
         halt = false;
         startIndex = 0;
