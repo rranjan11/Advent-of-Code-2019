@@ -6,7 +6,7 @@ import java.util.Scanner;
  * Day 1
  * @author Rishabh Ranjan
  */
-public class FuelCounter {
+public class TheTyrannyOfTheRocketEquation {
     public static void part1(Scanner sc) {
         int fuelTotal = 0;
         while(sc.hasNextInt()) {
