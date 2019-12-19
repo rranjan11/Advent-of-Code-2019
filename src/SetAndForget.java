@@ -60,15 +60,12 @@ public class SetAndForget {
         while (sc2.hasNextLong()) {
             list.add(sc2.nextLong());
         }
-        for (int i = 0; i < 100000000; i++) {
-            list.add(0L);
-        }
         List<Long> listCopy = new ArrayList<>(list);
         boolean halt = false;
         int startIndex = 0;
         long relativeBase = 0;
         String output = "";
-        while(true) {
+        while (true) {
             Result result = IntcodeComputer.computer(listCopy,startIndex, relativeBase, false, 0);
             halt = result.halt;
             if (halt) {
@@ -94,6 +91,7 @@ public class SetAndForget {
                 }
             }
         }
+        System.out.println("Part 1 Answer: " + total);
         int x = 0;
         int y = 0;
         char direction = '^';
@@ -107,7 +105,6 @@ public class SetAndForget {
                 }
             }
         }
-        System.out.println("Part 1 Answer: " + total);
         String path = "";
         int distance = 0;
         while (pathForward(view, x, y, direction) || pathToRight(view, x, y, direction)

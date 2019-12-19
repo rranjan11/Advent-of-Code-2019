@@ -22,9 +22,6 @@ public class SensorBoost {
         while (sc2.hasNextLong()) {
             list.add(sc2.nextLong());
         }
-        for (int i = 0; i < 100000000; i++) {
-            list.add(0L);
-        }
         System.out.println("Part 1 Answer: " + IntcodeComputer.computer(new ArrayList<>(list), 0, 0,
             true, 1).output);
         System.out.println("Part 2 Answer: " + IntcodeComputer.computer(new ArrayList<>(list), 0, 0,

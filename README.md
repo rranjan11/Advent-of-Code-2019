@@ -34,3 +34,7 @@ Day 15: Oxygen System
 Day 16: Flawed Frequency Transmission
 
 Day 17: Set and Forget
+
+Day 18: Many-Worlds Interpretation
+
+Day 19: Tractor Beam

@@ -140,9 +140,6 @@ public class OxygenSystem {
         while (sc2.hasNextLong()) {
             list.add(sc2.nextLong());
         }
-        for (int i = 0; i < 100000000; i++) {
-            list.add(0L);
-        }
         int startIndex = 0;
         long relativeBase = 0;
         boolean inputSent = false;
@@ -151,8 +148,8 @@ public class OxygenSystem {
         HashSet<Position> positions = new HashSet<>();
         positions.add(new Position(0, 0, 3));
         Random rand = new Random();
-        for (int i = 0; i < 20; i++) {
-            List listCopy = (ArrayList) list.clone();
+        for (int i = 0; i < 50; i++) {
+            List<Long> listCopy = new ArrayList<>(list);
             HashSet<Integer> bannedMovements = new HashSet<>();
             Position currPosition = new Position(0, 0, 3);
             positions.add(new Position(0, 0, 3));

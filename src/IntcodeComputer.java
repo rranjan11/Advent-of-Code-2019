@@ -16,7 +16,7 @@ class Result {
 }
 
 /**
- * Intcode Computer used in Days 2, 5, 7, 9, 11, 13, 15, and 17
+ * Intcode Computer used in Days 2, 5, 7, 9, 11, 13, 15, 17, and 19
  * @author Rishabh Ranjan
  */
 public class IntcodeComputer {
@@ -30,10 +30,20 @@ public class IntcodeComputer {
     }
     public static long getParameter(List<Long> list, int index, long mode, long relativeBase) {
         if (mode == 0L) {
+            if (index >= list.size()) {
+                for (int i = 0; i < index - list.size() + 1; i++) {
+                    list.add(0L);
+                }
+            }
             return list.get(index);
         } else if (mode == 1L) {
             return index;
         } else if (mode == 2L) {
+            if (index >= list.size()) {
+                for (int i = 0; i < index - list.size() + 1; i++) {
+                    list.add(0L);
+                }
+            }
             return list.get(index) + relativeBase;
         } else {
             System.out.println("Parameter Error");
@@ -41,39 +51,151 @@ public class IntcodeComputer {
         }
     }
     public static void method1(List<Long> list, int i, long relativeBase) {
-        list.set((int) getParameter(list, i + 3, (int) (list.get(i)/10000)%10, relativeBase),
-            list.get((int) getParameter(list, i + 1, (list.get(i)/100)%10, relativeBase))
-                + list.get((int) getParameter(list, i + 2, (list.get(i)/1000)%10, relativeBase)));
+        int parameter1 = (int) getParameter(list, i + 3, (int) (list.get(i)/10000)%10, relativeBase);
+        int parameter2 = (int) getParameter(list, i + 1, (list.get(i)/100)%10, relativeBase);
+        int parameter3 = (int) getParameter(list, i + 2, (list.get(i)/1000)%10, relativeBase);
+        if (parameter1 >= list.size()) {
+            int size = list.size();
+            for (int j = 0; j < parameter1 - size + 1; j++) {
+                list.add(0L);
+            }
+        }
+        if (parameter2 >= list.size()) {
+            int size = list.size();
+            for (int j = 0; j < parameter2 - size + 1; j++) {
+                list.add(0L);
+            }
+        }
+        if (parameter3 >= list.size()) {
+            int size = list.size();
+            for (int j = 0; j < parameter3 - size + 1; j++) {
+                list.add(0L);
+            }
+        }
+        list.set(parameter1, list.get(parameter2) + list.get(parameter3));
     }
     public static void method2(List<Long> list, int i, long relativeBase) {
-        list.set((int) getParameter(list, i + 3, (list.get(i)/10000)%10, relativeBase),
-            list.get((int) getParameter(list, i + 1, (list.get(i)/100)%10, relativeBase))
-                * list.get((int) getParameter(list, i + 2, (list.get(i)/1000)%10, relativeBase)));
+        int parameter1 = (int) getParameter(list, i + 3, (int) (list.get(i)/10000)%10, relativeBase);
+        int parameter2 = (int) getParameter(list, i + 1, (list.get(i)/100)%10, relativeBase);
+        int parameter3 = (int) getParameter(list, i + 2, (list.get(i)/1000)%10, relativeBase);
+        if (parameter1 >= list.size()) {
+            int size = list.size();
+            for (int j = 0; j < parameter1 - size + 1; j++) {
+                list.add(0L);
+            }
+        }
+        if (parameter2 >= list.size()) {
+            int size = list.size();
+            for (int j = 0; j < parameter2 - size + 1; j++) {
+                list.add(0L);
+            }
+        }
+        if (parameter3 >= list.size()) {
+            int size = list.size();
+            for (int j = 0; j < parameter3 - size + 1; j++) {
+                list.add(0L);
+            }
+        }
+        list.set(parameter1, list.get(parameter2) * list.get(parameter3));
     }
     public static void method3(List<Long> list, int i, long input, long relativeBase) {
-        list.set((int) getParameter(list, i + 1, (list.get(i)/100)%10, relativeBase), input);
+        int parameter = (int) getParameter(list, i + 1, (list.get(i)/100)%10, relativeBase);
+        if (parameter >= list.size()) {
+            int size = list.size();
+            for (int j = 0; j < parameter - size + 1; j++) {
+//                System.out.println("added");
+                list.add(0L);
+            }
+        }
+        list.set(parameter, input);
     }
     public static long method4(List<Long> list, int i, long relativeBase) {
-        return list.get((int) getParameter(list, i + 1, (list.get(i)/100)%10, relativeBase));
+        int parameter = (int) getParameter(list, i + 1, (list.get(i)/100)%10, relativeBase);
+        if (parameter >= list.size()) {
+            int size = list.size();
+            for (int j = 0; j < parameter - size + 1; j++) {
+                list.add(0L);
+            }
+        }
+        return list.get(parameter);
     }
     public static boolean method5(List<Long> list, int i, long relativeBase) {
-        return list.get((int) getParameter(list, i + 1, (list.get(i) / 100) % 10, relativeBase)) != 0;
+        int parameter = (int) getParameter(list, i + 1, (list.get(i) / 100) % 10, relativeBase);
+        if (parameter >= list.size()) {
+            int size = list.size();
+            for (int j = 0; j < parameter - size + 1; j++) {
+                list.add(0L);
+            }
+        }
+        return list.get(parameter) != 0;
     }
     public static boolean method6(List<Long> list, int i, long relativeBase) {
-        return list.get((int) getParameter(list, i + 1, (list.get(i) / 100) % 10, relativeBase)) == 0;
+        int parameter = (int) getParameter(list, i + 1, (list.get(i) / 100) % 10, relativeBase);
+        if (parameter >= list.size()) {
+            int size = list.size();
+            for (int j = 0; j < parameter - size + 1; j++) {
+                list.add(0L);
+            }
+        }
+        return list.get(parameter) == 0;
     }
     public static void method7(List<Long> list, int i, long relativeBase) {
-        list.set((int) getParameter(list, i + 3, (list.get(i)/10000)%10, relativeBase),
-            (list.get((int) getParameter(list, i + 1, (list.get(i)/100)%10, relativeBase))
-                < list.get((int) getParameter(list, i + 2, (list.get(i)/1000)%10, relativeBase)) ? 1L : 0L));
+        int parameter1 = (int) getParameter(list, i + 3, (int) (list.get(i)/10000)%10, relativeBase);
+        int parameter2 = (int) getParameter(list, i + 1, (list.get(i)/100)%10, relativeBase);
+        int parameter3 = (int) getParameter(list, i + 2, (list.get(i)/1000)%10, relativeBase);
+        if (parameter1 >= list.size()) {
+            int size = list.size();
+            for (int j = 0; j < parameter1 - size + 1; j++) {
+                list.add(0L);
+            }
+        }
+        if (parameter2 >= list.size()) {
+            int size = list.size();
+            for (int j = 0; j < parameter2 - size + 1; j++) {
+                list.add(0L);
+            }
+        }
+        if (parameter3 >= list.size()) {
+            int size = list.size();
+            for (int j = 0; j < parameter3 - size + 1; j++) {
+                list.add(0L);
+            }
+        }
+        list.set(parameter1, (list.get(parameter2) < list.get(parameter3) ? 1L : 0L));
     }
     public static void method8(List<Long> list, int i, long relativeBase) {
-        list.set((int) getParameter(list, i + 3, (list.get(i)/10000)%10, relativeBase),
-            list.get((int) getParameter(list, i + 1, (list.get(i) / 100) % 10, relativeBase)).equals(
-                list.get((int) getParameter(list, i + 2, (list.get(i) / 1000) % 10, relativeBase))) ? 1L : 0L);
+        int parameter1 = (int) getParameter(list, i + 3, (int) (list.get(i)/10000)%10, relativeBase);
+        int parameter2 = (int) getParameter(list, i + 1, (list.get(i)/100)%10, relativeBase);
+        int parameter3 = (int) getParameter(list, i + 2, (list.get(i)/1000)%10, relativeBase);
+        if (parameter1 >= list.size()) {
+            int size = list.size();
+            for (int j = 0; j < parameter1 - size + 1; j++) {
+                list.add(0L);
+            }
+        }
+        if (parameter2 >= list.size()) {
+            int size = list.size();
+            for (int j = 0; j < parameter2 - size + 1; j++) {
+                list.add(0L);
+            }
+        }
+        if (parameter3 >= list.size()) {
+            int size = list.size();
+            for (int j = 0; j < parameter3 - size + 1; j++) {
+                list.add(0L);
+            }
+        }
+        list.set(parameter1, list.get(parameter2).equals(list.get(parameter3)) ? 1L : 0L);
     }
     public static long method9(List<Long> list, int i, long relativeBase) {
-        return list.get((int) getParameter(list, i + 1, (list.get(i) / 100) % 10, relativeBase));
+        int parameter = (int) getParameter(list, i + 1, (list.get(i) / 100) % 10, relativeBase);
+        if (parameter >= list.size()) {
+            int size = list.size();
+            for (int j = 0; j < parameter - size + 1; j++) {
+                list.add(0L);
+            }
+        }
+        return list.get(parameter);
     }
     public static Result computer(List<Long> list, int startIndex, long relativeBase, boolean inputReceived, int input) {
 //        System.out.println(list);
@@ -82,7 +204,13 @@ public class IntcodeComputer {
         boolean halt = false;
         long output = 0;
         int newStartIndex = 0;
-        for (int i = startIndex; i < list.size();) {
+        for (int i = startIndex;;) {
+            if (i >= list.size()) {
+                int size = list.size();
+                for (int j = 0; j < i - size + 1; j++) {
+                    list.add(0L);
+                }
+            }
 //            System.out.println(list);
 //            System.out.println(relativeBase);
 //            System.out.println(i);
@@ -111,6 +239,7 @@ public class IntcodeComputer {
                 i += 2;
             } else if (list.get(i)%100 == 4) {
                 output = method4(list, i, relativeBase);
+//                System.out.println("Outputting " + output);
                 i += 2;
                 newStartIndex = i;
                 break;

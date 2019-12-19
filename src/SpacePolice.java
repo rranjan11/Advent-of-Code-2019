@@ -73,9 +73,6 @@ public class SpacePolice {
         while (sc2.hasNextLong()) {
             list.add(sc2.nextLong());
         }
-        for (int i = 0; i < 100000000; i++) {
-            list.add(0L);
-        }
         ArrayList<Panel> painted = new ArrayList<>();
         Robot robot = new Robot(0, 0, 90);
         int startIndex = 0;
