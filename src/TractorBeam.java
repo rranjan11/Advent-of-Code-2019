@@ -24,7 +24,6 @@ public class TractorBeam {
             list.add(sc2.nextLong());
         }
         long output = 0;
-//        System.out.println("Map:");
         for (int i = 0; i < 50; i++) {
             for (int j = 0; j < 50; j++) {
                 int startIndex = 0;
