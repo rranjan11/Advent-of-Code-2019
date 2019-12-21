@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-
 /**
  * Day 19
  * @author Rishabh Ranjan

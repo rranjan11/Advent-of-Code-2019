@@ -38,3 +38,7 @@ Day 17: Set and Forget
 Day 18: Many-Worlds Interpretation
 
 Day 19: Tractor Beam
+
+Day 20: Donut Maze
+
+Day 21: Springdroid Adventure
