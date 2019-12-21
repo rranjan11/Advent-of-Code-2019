@@ -16,7 +16,7 @@ class Result {
 }
 
 /**
- * Intcode Computer used in Days 2, 5, 7, 9, 11, 13, 15, 17, and 19
+ * Intcode Computer used in Days 2, 5, 7, 9, 11, 13, 15, 17, 19, and 21
  * @author Rishabh Ranjan
  */
 public class IntcodeComputer {
