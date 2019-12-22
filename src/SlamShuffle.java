@@ -13,7 +13,7 @@ public class SlamShuffle {
         for (int i = 0; i < 10007; i++) {
             deck.add(i);
         }
-        Scanner sc = new Scanner(new File("inputDay22.txt"));
+        Scanner sc = new Scanner(new File("src/inputDay22.txt"));
         ArrayList<String> instructions = new ArrayList<>();
         while (sc.hasNextLine()) {
             String str = sc.nextLine();
