@@ -30,7 +30,12 @@ class Coordinates {
     }
     @Override
     public int hashCode() {
-        return 0;
+        int result = 1;
+        int prime = 31;
+        result = prime*result + x;
+        result = prime*result + y;
+        result = prime*result + layer;
+        return result;
     }
 }
 
@@ -238,11 +243,7 @@ public class DonutMaze {
         queue.add(currPosition);
         visited.add(currPosition);
         found = false;
-        int i = 0;
-        while (!queue.isEmpty()) { // runs for approximately 48 hours
-            if (i%10000 == 0) {
-                System.out.println(i + " iterations completed");
-            }
+        while (!queue.isEmpty()) {
             currPosition = queue.remove();
 //            System.out.println(currPosition.layer);
             for (Coordinates coordinates : portals.get("ZZ")) {
@@ -361,7 +362,6 @@ public class DonutMaze {
                     }
                 }
             }
-            i++;
         }
         count = 0;
         for (Coordinates ptr = currPosition; ptr.prev != null; ptr = ptr.prev) {
