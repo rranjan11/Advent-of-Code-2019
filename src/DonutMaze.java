@@ -248,7 +248,7 @@ public class DonutMaze {
             for (Coordinates coordinates : portals.get("ZZ")) {
                 if (currPosition.equals(coordinates)) {
                     found = true;
-                    System.out.println("found");
+//                    System.out.println("found");
                     break;
                 }
             }
