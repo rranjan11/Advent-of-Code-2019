@@ -1,5 +1,3 @@
-// This program is unfinished
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -53,9 +51,9 @@ public class DonutMaze {
             spaces += " ";
         }
         map.set(map.size() - 1, map.get(map.size() - 1) + spaces);
-        for (String str : map) {
-            System.out.println(str);
-        }
+//        for (String str : map) {
+//            System.out.println(str);
+//        }
         HashMap<String, HashSet<Coordinates>> portals = new HashMap<>();
         for (int i = 0; i < map.size(); i++) {
             for (int j = 0; j < map.get(0).length(); j++) {
@@ -112,7 +110,7 @@ public class DonutMaze {
                 }
             }
         }
-        System.out.println(portals);
+//        System.out.println(portals);
         Coordinates currPosition = new Coordinates(0, 0, 0);
         for (Coordinates coordinates : portals.get("AA")) {
             currPosition = coordinates;
@@ -230,7 +228,7 @@ public class DonutMaze {
         for (Coordinates ptr = currPosition; ptr.prev != null; ptr = ptr.prev) {
             count++;
         }
-        System.out.println(count);
+        System.out.println("Part 1 Answer: " + count);
         for (Coordinates coordinates : portals.get("AA")) {
             currPosition = coordinates;
         }
@@ -240,9 +238,13 @@ public class DonutMaze {
         queue.add(currPosition);
         visited.add(currPosition);
         found = false;
-        while (!queue.isEmpty()) {
+        int i = 0;
+        while (!queue.isEmpty()) { // runs for approximately 48 hours
+            if (i%10000 == 0) {
+                System.out.println(i + " iterations completed");
+            }
             currPosition = queue.remove();
-            System.out.println(currPosition.layer);
+//            System.out.println(currPosition.layer);
             for (Coordinates coordinates : portals.get("ZZ")) {
                 if (currPosition.equals(coordinates)) {
                     found = true;
@@ -359,12 +361,13 @@ public class DonutMaze {
                     }
                 }
             }
+            i++;
         }
         count = 0;
         for (Coordinates ptr = currPosition; ptr.prev != null; ptr = ptr.prev) {
 //            System.out.println(ptr.x + " " + ptr.y + " " + ptr.layer);
             count++;
         }
-        System.out.println(count);
+        System.out.println("Part 2 Answer: " + count);
     }
 }
